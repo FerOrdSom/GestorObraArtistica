@@ -2,16 +2,14 @@
 
 // web/index.php
 // carga del modelo y los controladores
-require_once __DIR__ . '/../app/Config.php';
-require_once __DIR__ . '/../app/Model.php';
-require_once __DIR__ . '/../app/Controller.php';
+require_once __DIR__ . '\..\app\Config.php';
+require_once __DIR__ . '\..\app\Model.php';
+require_once __DIR__ . '\..\app\Controller.php';
 // enrutamiento
 $map = array(
+    'login' => array('controller' => 'Controller', 'action' => 'login'),
+    'registro' => array('controller' => 'Controller', 'action' => 'registro'),
     'inicio' => array('controller' => 'Controller', 'action' => 'inicio'),
-    'listar' => array('controller' => 'Controller', 'action' => 'listar'),
-    'insertar' => array('controller' => 'Controller', 'action' => 'insertar'),
-    'buscar' => array('controller' => 'Controller', 'action' => 'buscarPorNombre'),
-    'ver' => array('controller' => 'Controller', 'action' => 'ver')
 );
 // Parseo de la ruta
 if (isset($_GET['ctl'])) {
@@ -19,13 +17,11 @@ if (isset($_GET['ctl'])) {
         $ruta = $_GET['ctl'];
     } else {
         header('Status: 404 Not Found');
-        echo '<html><body><h1>Error 404: No existe la ruta <i>' .
-        $_GET['ctl'] .
-        '</p></body></html>';
+        echo '<html><body><h1>Error 404: No existe la ruta <i>' . $_GET['ctl'] . '</h1></body></html>';
         exit;
     }
 } else {
-    $ruta = 'inicio';
+    $ruta = 'login';
 }
 $controlador = $map[$ruta];
 // Ejecución del controlador asociado a la ruta
