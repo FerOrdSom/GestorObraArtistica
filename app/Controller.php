@@ -1,5 +1,8 @@
 <?php
 
+require_once __DIR__ . '\..\app\Config.php';
+require_once __DIR__ . '\..\app\Model.php';
+
 class Controller {
     
     public function login(){
@@ -11,6 +14,13 @@ class Controller {
     }
     
     public function inicio() {
+        if(isset($_POST['usuario']) && $_POST['usuario']!=NULL){
+            echo "existe el usuario" . $_POST['usuario'] . "<br>";
+        }
+        $m = new Model();
+        $result = array('usuarios' => $m->consulta_users());
+        echo '<pre>'; print_r($result); echo '</pre>' . "<br>";
+        echo $result['usuarios']['0']['name'] . "<br>";
         require __DIR__ . '/templates/inicio.php';
     }
 

@@ -1,8 +1,13 @@
 <?php
 
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+class Config 
+{
+static public $mvc_bd_hostname = "localhost";
+static public $mvc_bd_nombre = "gestion";
+static public $mvc_bd_usuario = "root";
+static public $mvc_bd_clave = "";
+static public $mvc_vis_css = "estilo.css"; 
+}
+
+
 
