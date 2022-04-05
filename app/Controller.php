@@ -9,6 +9,10 @@ class Controller {
     public function registro(){
         require __DIR__ . '/templates/registro.php';
     }
+    
+    public function inicio() {
+        require __DIR__ . '/templates/inicio.php';
+    }
 
 //    public function inicio() {
 //        $params = array(
