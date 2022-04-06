@@ -4,22 +4,50 @@ require_once __DIR__ . '\..\app\Config.php';
 require_once __DIR__ . '\..\app\Model.php';
 
 class Controller {
-    
-    public function login(){
+
+    public function login() {
         require __DIR__ . '/templates/login.php';
     }
-    
-    public function registro(){
+
+    public function registro() {
+        $m = new Model();
+        $form = array("usuario" => '',
+            "password" => '',
+            "password_2" => '');
+        $form = $_POST;
+        
+        if (!empty($form['usuario']) ||
+                !empty($form['password']) ||
+                !empty($form['password_2'])) {
+            echo "Todos los campos son obligatorios" . "<br>";
+                        
+        }
+        if ((!empty($form['password']) && !empty($form['password_2']))){
+            if ($form['password'] != $form['password_2']){
+            echo "Los password deben coincidir" . "<br>";            
+            } else {
+                header( "Location: https://localhost/Gestor/web/index.php?ctl=inicio");                
+            }
+        }
+//        print_r($_POST);
+//        print_r($form);
+
+        if (!empty($form['password']) && !isset($_POST['password'])) {
+            echo "password required";
+            
+        }
         require __DIR__ . '/templates/registro.php';
     }
-    
+
     public function inicio() {
-        if(isset($_POST['usuario']) && $_POST['usuario']!=NULL){
+        if (isset($_POST['usuario']) && $_POST['usuario'] != NULL) {
             echo "existe el usuario" . $_POST['usuario'] . "<br>";
         }
         $m = new Model();
         $result = array('usuarios' => $m->consulta_users());
-        echo '<pre>'; print_r($result); echo '</pre>' . "<br>";
+        echo '<pre>';
+        print_r($result);
+        echo '</pre>' . "<br>";
         echo $result['usuarios']['0']['name'] . "<br>";
         require __DIR__ . '/templates/inicio.php';
     }
@@ -94,7 +122,6 @@ class Controller {
 //
 //        require __DIR__ . '/templates/verAlimento.php';
 //    }
-
 }
 
 ?>
