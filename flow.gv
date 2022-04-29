@@ -1,0 +1,7 @@
+digraph {
+  login -> login;
+  login -> index;
+  index -> index;
+  index -> logout;
+  logout -> login;
+}
