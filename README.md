@@ -56,3 +56,13 @@ Hosted locally A:
 * [index.php](index.php)
 * [login.php](login.php)
 * [logout.php](logout.php)
+
+### generate these pages with php under apache with forms but WITHOUT sql connections
+
+-Start Apache server.
+-Files located at C:/xampp/htdocs/Gestor
+-Open browser
+-Go to URLs:
+ * (https://localhost/Gestor/index.php)
+ * (https://localhost/Gestor/login.php)
+ * (https://localhost/Gestor/logout.php)
