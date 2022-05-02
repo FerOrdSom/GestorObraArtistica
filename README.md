@@ -50,3 +50,9 @@ Hosted locally A:
 * [index.html](index.html)
 * [login.html](login.html)
 * [logout.html](logout.html)
+
+### STATIC SITE (PHP version)
+
+* [index.php](index.php)
+* [login.php](login.php)
+* [logout.php](logout.php)
