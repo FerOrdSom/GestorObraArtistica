@@ -66,3 +66,20 @@ Hosted locally A:
  * (https://localhost/Gestor/index.php)
  * (https://localhost/Gestor/login.php)
  * (https://localhost/Gestor/logout.php)
+
+### generate these pages with php under apache with sql connections
+
+- Start MySQL server
+- Create database at (https://localhost/phpmyadmin)
+- Create connection at files with:
+```php
+$mysqli = new mysqli("localhost", "root", "", "gestion");
+```
+- check if connected with:
+```php
+if ($mysqli){
+  echo "dev info: connection succeded";
+}else{
+  echo "dev info: connection failed";
+}
+```
