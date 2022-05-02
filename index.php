@@ -1,2 +1,2 @@
 hello user
-<a href="logout.html">logout</a>
+<a href="logout.php">logout</a>
