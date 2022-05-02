@@ -1,1 +1,3 @@
-<a href="login.html">login</a>
+<?php
+readfile("logout.html");
+?>
