@@ -59,10 +59,10 @@ Hosted locally A:
 
 ### generate these pages with php under apache with forms but WITHOUT sql connections
 
--Start Apache server.
--Files located at C:/xampp/htdocs/Gestor
--Open browser
--Go to URLs:
+- Start Apache server.
+- Files located at C:/xampp/htdocs/Gestor
+- Open browser
+- Go to URLs:
  * (https://localhost/Gestor/index.php)
  * (https://localhost/Gestor/login.php)
  * (https://localhost/Gestor/logout.php)
