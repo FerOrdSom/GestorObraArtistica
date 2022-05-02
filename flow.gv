@@ -1,6 +1,6 @@
 digraph {
-  login -> login;
-  login -> index;
+  login -> login [label="incorrect credentials"];
+  login -> index  [label="success"];
   index -> index;
   index -> logout;
   logout -> login;
