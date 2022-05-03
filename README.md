@@ -84,3 +84,34 @@ if ($mysqli){
 }
 ```
 - Go to URL: (https://localhost/Gestor/login.php)
+
+### Login query ando logic
+
+-Use of prepared statement
+```
+SELECT name,password FROM users WHERE name=?
+```
+-Users are unique, from this query variables username and userpass are fetched
+```php
+$stmt->bind_result($username,$userpass);
+$stmt->fetch();
+```
+-Login logic
+  * user must exist
+  ```php
+    if (!isset($username)){
+      echo "el usuario no existe";
+    }
+  ```
+  * password must match
+  ```php
+  elseif($userpass!=$password){
+    echo "password incorrecto";
+  }
+  ```
+  * then access is granted
+  ```php
+  else{
+    header('Location: index.php');
+  }
+  ```
