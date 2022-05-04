@@ -98,6 +98,11 @@ if (!isset($username)){
 }elseif($userpass!=$password){
   echo "password incorrecto";
 }else{
+//iniciate session and redirect to main page
+session_start();
+if (!isset($_SESSION['username'])) {
+  $_SESSION['username'] = $username;
+} 
   header('Location: index.php');
 }
 }
