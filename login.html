@@ -6,12 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" type="text/css" href="css\bootstrap.min.css">
   <style>
-  .container {
-    background-color: pink;
-  }
-  .container-fluid {
-    background-color: black;
-  }
+
   body {
     height: 100vh;
     display: flex;
@@ -20,16 +15,36 @@
 
 footer{
     margin-top: auto;
+    height:7%;
+}
+header{
+  height:7%;
+}
+
+#login-background{
+  background-color: rgb(200,190,200);
+
 }
   #display {
-    background-color: olive;
+    background-color: white;
   }
   #login-card {
-    background-color: grey;
+    box-shadow: 30px 30px 60px 5px rgb(80,80,80);
+    background-color:rgb(165,155,185);
     border-radius: 0.5rem;
+    border-style: solid;
+    border-width: 1px;
+    border-color: black;
+  }
+  label, form{
+    text-shadow: 1px 1px rgb(50,50,50);
+    color:white;
   }
   .btn {
     max-width: 50%;
+    background-color: rgb(150,140,150);
+    border: none;
+    text-shadow: 1px 1px rgb(50,50,50);
   }
   footer, header {
     background-color: red;
@@ -39,21 +54,24 @@ footer{
 </head>
 
 <body>
-<header>my header</header>
+
   <div class="container-fluid h-100 mx-0 my-0">
-      <div class="container w-100 h-100">
+      <div id="login-background" class="container w-100 h-100">
           <div class="row h-100 justify-content-center">
-            <div class="col-3 border">col1</div>
-            <div class="col-6 align-self-center border">
-              <div class="container h-100" id="login-card">
+            <div class="col-4 "></div>
+            <div class="col-4 my-auto">
+              <div class="row">
+              <div class="container h-100 " id="login-card">
               <form class="p-2"action="login.php" method="get"><h4 class="text-center">Login</h4>
                 <div class="form-group row py-1">
-                  <label class="col-2 col-form-label" for="username">Usuario</label>
-                  <div class="col-10"><input class="form-control" type="text" name="username" placeholder="Introduzca usuario" required></div>
+                  <label class="col-1 col-form-label" for="username">Usuario</label>
+                  <div class="col-2"></div>
+                  <div class="col-9 "><input class="form-control" type="text" name="username" placeholder="Introduzca usuario" required></div>
                 </div>
                 <div class="form-group row py-2">
-                  <label class="col-2 col-form-label" for="password">Password</label>
-                  <div class="col-10"><input class="form-control" type="password" name="password" placeholder="Introduzca password"required></div>
+                  <label class="col-1 col-form-label" for="password">Password</label>
+                  <div class="col-2"></div>
+                  <div class="col-9 "><input class="form-control" type="password" name="password" placeholder="Introduzca password"required></div>
                 </div>
                 <div class="form-group row py-2 justify-content-center">
                   <button class="btn btn-primary" type="submit">Login</button>
@@ -61,11 +79,12 @@ footer{
               </form>
             </div>
             </div>
-            <div class="col-3 border">col3</div>
+            </div>
+            <div class="col-4 "></div>
           </div>
       </div>
   </div>
-<footer>my footer</footer>
+
 <script type="text/javascript" src="js\bootstrap.min.js"></script>
 </body>
 </html>
