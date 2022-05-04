@@ -1,3 +1,2 @@
-<?php
-readfile("index.html");
-?>
+hello user
+<a href="logout.php">logout</a>
