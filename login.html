@@ -5,48 +5,33 @@
   <title>Login</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" type="text/css" href="css\bootstrap.min.css">
+  <style>
+  .container {
+    background-color: pink;
+  }
+  body {
+    height: 100vh;
+    }
+  #display {
+    background-color: olive;
+  }
+  footer, header {
+    background-color: red;
+  }
+  </style>
 </head>
 
 <body>
-<header>Login header</header>
-<!--login form -->
-<form action="login.php" method="get" class="form-example">
-  <div class="login-form">
-    <label for="username">Introduzca usuario: </label>
-    <input type="text" name="username" required>
-  </div>
-  <div class="login-form">
-    <label for="password">Introduzca password: </label>
-    <input type="password" name="password" required>
-  </div>
-  <div class="login-form">
-    <input type="submit" value="Login">
-  </div>
-</form>
-<button>Abrir registro</button>
-<!--register form -->
-<form action="login.php" method="get" class="form-example">
-  <div class="register-form">
-    <label for="newusername">Introduzca nombre de usuario: </label>
-    <input type="text" name="newusername" required>
-  </div>
-  <div class="register-form">
-    <label for="newemail">Introduzca su email: </label>
-    <input type="email" name="newemail" required>
-  </div>
-  <div class="register-form">
-    <label for="newpassword">Introduzca su password: </label>
-    <input type="text" name="newpassword" required>
-  </div>
-  <div class="register-form">
-    <label for="checkpassword">Confirme su password: </label>
-    <input type="text" name="checkpassword" required>
-  </div>
-  <div class="login-form">
-    <input type="submit" value="Registrar">
-  </div>
-</form>
-<footer>my footer</footer>
+<div class="container-fluid mx-0 my-0">
+<header class="row">my header</header>
+<div class="container">
+
+<div class="container" id="display">display</div>
+
+</div>
+
+<footer class="row">my footer</footer>
+</div>
 <script type="text/javascript" src="js\bootstrap.min.js"></script>
 </body>
 </html>
