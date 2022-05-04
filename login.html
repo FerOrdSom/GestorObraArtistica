@@ -1,60 +1,49 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="utf-8">
   <title>Login</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" type="text/css" href="css\bootstrap.min.css">
   <style>
-
-  body {
+body {
     height: 100vh;
     display: flex;
     flex-direction: column;
-    }
-
-footer{
-    margin-top: auto;
-    height:7%;
-}
-header{
-  height:7%;
-}
-
+  }
 #login-background{
-  background-color: rgb(200,190,200);
-
-}
-  #display {
+  background-color: rgb(180,170,180);
+  border-left-style: solid;
+  border-right-style: solid;
+  border-width: 1px;
+  border-color: black;
+  }
+#display {
     background-color: white;
   }
-  #login-card {
-    box-shadow: 30px 30px 60px 5px rgb(80,80,80);
+#login-card {
+    box-shadow: 0px 0px 200px 120px rgb(245,235,245);
     background-color:rgb(165,155,185);
     border-radius: 0.5rem;
     border-style: solid;
     border-width: 1px;
     border-color: black;
   }
-  label, form{
+label, form {
     text-shadow: 1px 1px rgb(50,50,50);
     color:white;
   }
-  .btn {
+.btn {
     max-width: 50%;
     background-color: rgb(150,140,150);
     border: none;
     text-shadow: 1px 1px rgb(50,50,50);
   }
-  footer, header {
-    background-color: red;
-  }
-
-  </style>
+</style>
 </head>
 
 <body>
-
   <div class="container-fluid h-100 mx-0 my-0">
       <div id="login-background" class="container w-100 h-100">
           <div class="row h-100 justify-content-center">
@@ -74,7 +63,9 @@ header{
                   <div class="col-9 "><input class="form-control" type="password" name="password" placeholder="Introduzca password"required></div>
                 </div>
                 <div class="form-group row py-2 justify-content-center">
+                  <div class="col-1"></div>
                   <button class="btn btn-primary" type="submit">Login</button>
+                  <a class="col-1 ms-4">Registro</a>
                   </div>
               </form>
             </div>
@@ -84,7 +75,7 @@ header{
           </div>
       </div>
   </div>
-
 <script type="text/javascript" src="js\bootstrap.min.js"></script>
 </body>
+
 </html>
