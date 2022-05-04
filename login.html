@@ -23,7 +23,7 @@ body {
     background-color: white;
   }
 #login-card, #register-card {
-    box-shadow: 0px 0px 200px 120px rgb(245,235,245);
+    /* box-shadow: 0px 0px 200px 120px rgb(245,235,245); */
     background-color:rgb(165,155,185);
     border-radius: 0.5rem;
     border-style: solid;
@@ -47,60 +47,60 @@ label, form {
   <div class="container-fluid h-100 mx-0 my-0">
       <div id="login-background" class="container w-100 h-100">
           <div class="row h-100 justify-content-center">
-            <div class="col-4 "></div>
-            <div class="col-4 my-auto">
+            <div class=" col-sm-0 col-md-1 col-lg-2 col-xl-3"></div>
+            <div class="col-sm-12 col-md-8 col-lg-6 col-xl-5 col-xxl-4 my-auto">
               <div class="row">
-                <div class="container h-100 " id="login-card" hidden>
+                <div class="container h-100 " id="login-card"  hidden >
                   <form class="p-2"action="login.php" method="get"><h4 class="text-center">Login</h4>
                     <div class="form-group row py-1">
-                      <label class="col-1 col-form-label" for="username">Usuario</label>
+                      <label class="col-1 col-form-label" for="username">User</label>
                       <div class="col-2"></div>
-                      <div class="col-9 "><input class="form-control" type="text" name="username" placeholder="Introduzca usuario" required></div>
+                      <div class="col-9 "><input class="form-control" type="text" name="username" placeholder="Insert user" required></div>
                     </div>
                     <div class="form-group row py-2">
                       <label class="col-1 col-form-label" for="password">Password</label>
                       <div class="col-2"></div>
-                      <div class="col-9 "><input class="form-control" type="password" name="password" placeholder="Introduzca password"required></div>
+                      <div class="col-9 "><input class="form-control" type="password" name="password" placeholder="Insert password"required></div>
                     </div>
                     <div class="form-group row py-2 justify-content-center">
                       <div class="col-1"></div>
                       <button class="btn btn-primary" type="submit">Login</button>
-                      <a class="col-1 ms-4">Registro</a>
+                      <a class="col-3 col-sm-0 ms-5 ps-1 text-center border">Sign in</a>
                     </div>
                   </form>
                 </div>
-                <div class="container h-100 " id="register-card" >
-                  <form class="p-2"action="login.php" method="get"><h4 class="text-center">Registro</h4>
+                <div class="container container-sm h-100 " id="register-card">
+                  <form class="p-2"action="login.php" method="get"><h4 class="text-center">Register</h4>
                     <div class="form-group row py-1">
-                      <label class="col-1 col-form-label" for="username">Usuario</label>
+                      <label class="col-1 col-form-label" for="username">User</label>
                       <div class="col-2"></div>
-                      <div class="col-9 "><input class="form-control" type="text" name="newusername" placeholder="Introduzca usuario" required></div>
+                      <div class="col-9 "><input class="form-control" type="text" name="newusername" placeholder="Insert user name" required></div>
                     </div>
                     <div class="form-group row py-1">
                       <label class="col-1 col-form-label" for="email">Email</label>
                       <div class="col-2"></div>
-                      <div class="col-9 "><input class="form-control" type="email" name="email" placeholder="Introduzca email" required></div>
+                      <div class="col-9 "><input class="form-control" type="email" name="email" placeholder="Insert email" required></div>
                     </div>
                     <div class="form-group row py-1">
                       <label class="col-1 col-form-label" for="newpassword">Password</label>
                       <div class="col-2"></div>
-                      <div class="col-9 "><input class="form-control" type="password" name="newpassword" placeholder="Introduzca password"required></div>
+                      <div class="col-9 "><input class="form-control" type="password" name="newpassword" placeholder="Insert password"required></div>
                     </div>
                     <div class="form-group row py-1">
                       <label class="col-1 col-form-label" for="checkpassword"> </label>
                       <div class="col-2"></div>
-                      <div class="col-9 "><input class="form-control" type="password" name="checkpassword" placeholder="Repita password"required></div>
+                      <div class="col-9 "><input class="form-control" type="password" name="checkpassword" placeholder="Repeat password"required></div>
                     </div>
                     <div class="form-group row py-2 justify-content-center">
-                      <div class="col-1"></div>
-                      <button class="btn btn-primary" type="submit">Registrarse</button>
-                      <a class="col-1 ms-4">Volver</a>
+                      <div class="col-1 col-sm-0"></div>
+                      <button class="btn btn-primary" type="submit">Sign in</button>
+                      <a class="col-1 col-sm-0 ms-4">Back</a>
                     </div>
                   </form>
                 </div>
             </div>
             </div>
-            <div class="col-4 "></div>
+            <div class=" col-sm-0 col-md-1 col-lg-2 col-xl-3"></div>
           </div>
       </div>
   </div>
