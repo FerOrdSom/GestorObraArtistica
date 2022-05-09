@@ -134,6 +134,8 @@ $stmt = $mysqli->prepare("INSERT INTO users(name, email, password) VALUES (?, ?,
 $stmt->bind_param("sss", $newusername, $newemail, $hashed_password); // "is" means that $id is bound as an integer and $label as a string
 
 $stmt->execute();
+$_GET=null;
+header("Location: login.php");
 }
 }
  ?>
