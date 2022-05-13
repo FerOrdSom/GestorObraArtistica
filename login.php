@@ -88,21 +88,21 @@ $stmt->bind_param("s", $user);
 /* execute query */
 $stmt->execute();
 /* bind result variables */
-$stmt->bind_result($username,$userpass);
+$stmt->bind_result($username,$userpass); //$userpass is hashed
 /* fetch value */
 $stmt->fetch();
 
 //basic login logic and redirection
 if (!isset($username)){
   echo "el usuario no existe";
-}elseif($userpass!=$password){
+}elseif(!password_verify($password , $userpass)){
   echo "password incorrecto";
 }else{
 //iniciate session and redirect to main page
 session_start();
 if (!isset($_SESSION['username'])) {
   $_SESSION['username'] = $username;
-} 
+}
   header('Location: index.php');
 }
 }
@@ -123,15 +123,19 @@ if ($newpassword != $checkpassword){
   echo "el password no coincide";
 }else{
 echo "<br>dev info: "."newuser: ".$newusername." newemail: ".$newemail." newpass: ".$newpassword. " checkpass: ".$checkpassword;
+/*hashing password for storing*/
+$hashed_password = password_hash($newpassword, PASSWORD_DEFAULT);
 
 /* Prepared statement, stage 1: prepare */
 $stmt = $mysqli->prepare("INSERT INTO users(name, email, password) VALUES (?, ?, ?)");
 
 /* Prepared statement, stage 2: bind and execute */
 
-$stmt->bind_param("sss", $newusername, $newemail, $newpassword); // "is" means that $id is bound as an integer and $label as a string
+$stmt->bind_param("sss", $newusername, $newemail, $hashed_password); // "is" means that $id is bound as an integer and $label as a string
 
 $stmt->execute();
+$_GET=null;
+header("Location: login.php");
 }
 }
  ?>
