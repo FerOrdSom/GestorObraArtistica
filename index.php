@@ -1,4 +1,5 @@
 <?php
+require_once "utils.php";
 session_start();
 if (!isset($_SESSION['username'])) {
   header('Location: login.php');
@@ -21,7 +22,9 @@ if (!isset($_SESSION['username'])) {
     ?>
     <a href="logout.php">logout</a>
   </header>
-  <nav>
+  <?php echo make_nav();
+   ?>
+  <!-- <nav>
     <p>Navegador</p>
       <ul>
    	      <li>Catalogo</li>
@@ -32,7 +35,7 @@ if (!isset($_SESSION['username'])) {
           <li>Configuracion de perfil</li>
 
       </ul>
-  </nav>
+  </nav> -->
   <div>Aqui el contenido a rellenar</div>
 
   <footer>my footer</footer>
