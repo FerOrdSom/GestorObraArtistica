@@ -84,7 +84,7 @@ class View {
     "
     <div class=\"container-fluid h-100 mx-0 my-0\">
       <div class=\"row h-100 justify-content-center align-items-center\" id=\"login-card\">
-        <form class=\"col-sm-10 col-md-6 col-lg-5 col-xl-4 col-xxl-4\" action=\"passrecovery.php\" method=\"post\"><h4 class=\"text-center\">Account recovery</h4>
+        <form class=\"col-sm-10 col-md-6 col-lg-5 col-xl-4 col-xxl-4\" action=\"passrecoveryview.php\" method=\"post\"><h4 class=\"text-center\">Account recovery</h4>
           <div class=\"form-group row py-1\">
             <label class=\"col-1 col-form-label\" for=\"useremail\">Email</label>
             <div class=\"col-2\"></div>
@@ -100,6 +100,35 @@ class View {
         </form>
       </div>
     </div>
+    ";
+  }
+  public static function get_portal_view($content){
+    return
+    "
+
+    <nav class=\"navbar navbar-default navbar-fixed-top border\">
+      <div class=\"container fluid\">
+      <ul class=\"nav navbar-nav navbar-right\">
+   	      <li >Galeria</li>
+   	      <li >Creador de fichas</li>
+   	      <li >Tareas</li>
+          <li >Contactos</li>
+          <li >Calculadora de precio</li>
+          <li >Configuracion de perfil</li>
+      </ul>
+      </div>
+    </nav>
+    <div class=\"container h-100 border\">
+    "
+    .$content
+    ."
+    </div>
+    <nav class=\"navbar navbar-default navbar-fixed-bottom border\">
+      <div class=\"container fluid\">
+        <p class=\"text-justify-center\"> My artistic manager </p>
+      </div>
+    </nav>
+
     ";
   }
 }

@@ -36,7 +36,7 @@ class Controller {
     $user = $_POST["username"];
     $password = $_POST["password"];
     $result = Model::login($user);
-    if (!isset($result["username"])){
+    if ($result["username"]==""){
       echo "el usuario no existe";
     }elseif(!password_verify($password , $result["userpass"])){
       echo "password incorrecto";
@@ -46,9 +46,17 @@ class Controller {
     if (!isset($_SESSION['username'])) {
       $_SESSION['username'] = $user;
     }
-      header('Location: index.php');
+      header('Location: portalview.php');
     }
   }
-}
+  }
+  public static function passrecovery(){
+    if (isset($_POST["useremail"])){
+      //cambiar mail y enviar correo
+      echo "Check your email";
+      header( "refresh:5; url=loginview.php" );
+
+    }
+  }
 }
 ?>
