@@ -2,7 +2,7 @@
 require_once "utils.php";
 session_start();
 if (!isset($_SESSION['username'])) {
-  header('Location: login.php');
+  header('Location: loginview.php');
 }
 ?>
 
@@ -10,7 +10,7 @@ if (!isset($_SESSION['username'])) {
 <html lang="es">
 <head>
   <meta charset="utf-8">
-  <title>Portal</title>
+  <title>Mi Gestor</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/index.css">
 </head>
