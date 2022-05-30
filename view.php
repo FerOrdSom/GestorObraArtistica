@@ -23,7 +23,7 @@ class View {
     "
     <div class=\"container-fluid h-100 mx-0 my-0\">
       <div class=\"row h-100 justify-content-center align-items-center\" id=\"login-card\">
-        <form class=\"col-sm-10 col-md-6 col-lg-4 col-xl-4 col-xxl-4\" action=\"loginview.php\" method=\"post\"><h4 class=\"text-center\">Login</h4>
+        <form class=\"col-sm-10 col-md-6 col-lg-5 col-xl-4 col-xxl-4\" action=\"loginview.php\" method=\"post\"><h4 class=\"text-center\">Login</h4>
           <div class=\"form-group row py-1\">
             <label class=\"col-1 col-form-label\" for=\"username\">User</label>
             <div class=\"col-2\"></div>
@@ -37,7 +37,7 @@ class View {
           <div class=\"form-group row py-2 justify-content-center\">
             <button class=\"btn btn-primary\" type=\"submit\">Login</button>
             <a href=\"registerview.php\" class=\"text-center my-4\">Sign in</a>
-            <a href=\"passrecovery.php\" class=\"text-center\">Forgot password</a>
+            <a href=\"passrecoveryview.php\" class=\"text-center\">Forgot password</a>
           </div>
         </form>
       </div>
@@ -48,7 +48,7 @@ class View {
     return "<!-- Full extension background -->
     <div class=\"container-fluid h-100 mx-0 my-0\">
       <div class=\"row h-100 justify-content-center align-items-center\" id=\"register-card\">
-        <form class=\"col-sm-10 col-md-6 col-lg-4 col-xl-4 col-xxl-4\"action=\"registerview.php\" method=\"post\"><h4 class=\"text-center\">Register</h4>
+        <form class=\"col-sm-10 col-md-6 col-lg-5 col-xl-4 col-xxl-4\"action=\"registerview.php\" method=\"post\"><h4 class=\"text-center\">Register</h4>
           <div class=\"form-group row py-1\">
             <label class=\"col-1 col-form-label\" for=\"username\">User</label>
             <div class=\"col-2\"></div>
@@ -72,6 +72,29 @@ class View {
           <div class=\"form-group row py-2 justify-content-center\">
             <div class=\"col-1 col-sm-0\"></div>
             <button class=\"btn btn-primary\" type=\"submit\">Sign in</button>
+            <a href=\"loginview.php\" class=\"text-center my-4\">Back</a>
+          </div>
+        </form>
+      </div>
+    </div>
+    ";
+  }
+  public static function get_account_recovery_view() {
+    return
+    "
+    <div class=\"container-fluid h-100 mx-0 my-0\">
+      <div class=\"row h-100 justify-content-center align-items-center\" id=\"login-card\">
+        <form class=\"col-sm-10 col-md-6 col-lg-5 col-xl-4 col-xxl-4\" action=\"passrecovery.php\" method=\"post\"><h4 class=\"text-center\">Account recovery</h4>
+          <div class=\"form-group row py-1\">
+            <label class=\"col-1 col-form-label\" for=\"useremail\">Email</label>
+            <div class=\"col-2\"></div>
+            <div class=\"col-9 \"><input class=\"form-control\" type=\"text\" name=\"useremail\" placeholder=\"Insert your email\" required></div>
+          </div>
+          <div class=\"form-group row py-2 text-center\">
+            <p class=\"text-justify\"> Insert your email and a new password will be sent </p>
+          </div>
+          <div class=\"form-group row py-2 justify-content-center\">
+            <button class=\"btn btn-primary\" type=\"submit\">Send new password</button>
             <a href=\"loginview.php\" class=\"text-center my-4\">Back</a>
           </div>
         </form>
