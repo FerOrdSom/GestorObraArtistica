@@ -24,22 +24,13 @@ class Controller {
 
     //basic password check
     if ($newpassword != $checkpassword){
-      echo "el password no coincide";
+      echo "<div class=\"alert alert-danger text-center\" role=\"alert\">
+      Error: Passwords don't match </div>";
+      die();
     }
     /*hashing password for storing*/
     $hashed_password = password_hash($newpassword, PASSWORD_DEFAULT);
     Model::create_user($newusername,$newemail,$hashed_password);
-
-    $subject = "Welcome";
-    $body = "Hi, we just called to say we love you.";
-    $headers = "From: Your artistic manager";
-
-    if (mail($newwmail, $subject, $body, $headers))
-    {
-        echo "Email successfully sent to $to_email...";
-    }else{
-        echo "Email sending failed!";
-      }
     }
   }
   public static function login(){
@@ -48,9 +39,11 @@ class Controller {
     $password = $_POST["password"];
     $result = Model::login($user);
     if ($result["username"]==""){
-      echo "el usuario no existe";
+      echo "<div class=\"alert alert-danger text-center\" role=\"alert\">
+      Error: User don't exist </div>";
     }elseif(!password_verify($password , $result["userpass"])){
-      echo "password incorrecto";
+      echo "<div class=\"alert alert-danger text-center\" role=\"alert\">
+      Error: Wrong password </div>";
     }else{
     //iniciate session and redirect to main page
     session_start();
@@ -88,6 +81,6 @@ class Controller {
       }
     }
   }
-  
+
 }
 ?>

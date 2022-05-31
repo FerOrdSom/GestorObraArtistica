@@ -13,6 +13,7 @@ class Model{
         }
   }
   public static function create_user($newusername, $newemail, $hashed_password){
+    try{
     $mysqli = new mysqli("localhost", "root", "", "gestion");
     $stmt = $mysqli->prepare("INSERT INTO users(name, email, password) VALUES (?, ?, ?)");
     $stmt->bind_param("sss", $newusername, $newemail, $hashed_password); // "is" means that $id is bound as an integer and $label as a string
@@ -22,6 +23,11 @@ class Model{
     $stmt->bind_param("i", $user);
     $stmt->execute();
     $_POST=null;
+    }catch (Exception $e) {
+    echo "<div class=\"alert alert-danger text-center\" role=\"alert\">
+    Error: User already exists</div>" ;
+    die();
+    }
     header("Location: loginview.php");
   }
   public static function login($user){
