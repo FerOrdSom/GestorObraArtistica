@@ -9,9 +9,10 @@ if (!isset($_SESSION['username'])) {
 <?php
 
 $content = Controller::get_content();
+Controller::get_action();
 echo View::get_head();
 echo View::get_portal_view($content);
 echo View::get_foot();
-Controller::get_action();
+
 
 ?>

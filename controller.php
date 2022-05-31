@@ -91,7 +91,8 @@ class Controller {
                               $_POST["phone2"],
                               $_POST["web"],
                               $_POST["adress"],
-                              $_POST["notes"],);         
+                              $_POST["notes"],);
+
       break;
     default:
         return View::get_portal_view_welcome_content();

@@ -140,7 +140,7 @@ class View {
     "
     <div class=\"container-fluid h-100 mx-0 my-0\">
       <div class=\"row h-100 justify-content-center align-items-center\" id=\"profile-card\">
-        <form class=\"col-12\" action=\"portalview.php?cnt=profile&act=profedit\" method=\"post\">
+        <form class=\"col-12\" action=\"profilesave.php\" method=\"post\">
           <h2 class=\"text-center\">Profile</h2>
           <h4 class=\"text-center\">Personal</h4>
           <div class=\"form-group row py-1\">
@@ -186,6 +186,7 @@ class View {
           </div>
           <div class=\"form-group row py-1 justify-content-center\">
             <button class=\"col-2 btn btn-primary\" type=\"submit\">Save Changes</button>
+
           </div>
         </form>
       </div>
