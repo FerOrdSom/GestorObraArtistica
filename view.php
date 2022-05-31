@@ -45,7 +45,7 @@ class View {
     ";
   }
   public static function get_register_view (){
-    return "<!-- Full extension background -->
+    return "
     <div class=\"container-fluid h-100 mx-0 my-0\">
       <div class=\"row h-100 justify-content-center align-items-center\" id=\"register-card\">
         <form class=\"col-sm-10 col-md-6 col-lg-5 col-xl-4 col-xxl-4\"action=\"registerview.php\" method=\"post\"><h4 class=\"text-center\">Register</h4>
@@ -105,30 +105,91 @@ class View {
   public static function get_portal_view($content){
     return
     "
-
     <nav class=\"navbar navbar-default navbar-fixed-top border\">
-      <div class=\"container fluid\">
-      <ul class=\"nav navbar-nav navbar-right\">
-   	      <li >Galeria</li>
-   	      <li >Creador de fichas</li>
-   	      <li >Tareas</li>
-          <li >Contactos</li>
-          <li >Calculadora de precio</li>
-          <li >Configuracion de perfil</li>
-      </ul>
+      <div class=\"container\">
+      <div>Bienvenido/a ".$_SESSION['username']."</div>
+      <nav class=\"nav\">
+          <a class=\"nav-link\" href=\"portalview.php?\">Welcome</a>
+   	      <a class=\"nav-link\" href=\"portalview.php?cnt=gallery\">Gallery</a>
+   	      <a class=\"nav-link\" href=\"portalview.php?cnt=records\">Records</a>
+   	      <a class=\"nav-link\" href=\"portalview.php?cnt=profile\">Profile</a>
+          <a class=\"nav-link\" href=\"logout.php\">Logout</a>
+      </nav>
       </div>
     </nav>
-    <div class=\"container h-100 border\">
+    <div class=\"container h-100 border overflow-auto\">
     "
     .$content
     ."
     </div>
-    <nav class=\"navbar navbar-default navbar-fixed-bottom border\">
-      <div class=\"container fluid\">
-        <p class=\"text-justify-center\"> My artistic manager </p>
+    <div class=\"navbar navbar-default navbar-fixed-bottom border justify-content-center\">
+        <p class=\"text-justify-center\"> My artistic manager 2022</p>
+    </div>
+    ";
+  }
+  public static function get_portal_view_welcome_content(){
+    return
+    "
+    <h2 class=\"text-center\">Welcome to your artistic manager</h2>
+    ";
+  }
+  public static function get_profile_content(){
+    $profile = Model::get_user_profile();
+    $direccion = $profile["adress"];
+    return
+    "
+    <div class=\"container-fluid h-100 mx-0 my-0\">
+      <div class=\"row h-100 justify-content-center align-items-center\" id=\"profile-card\">
+        <form class=\"col-12\" action=\"portalview.php?cnt=profile&act=profedit\" method=\"post\">
+          <h2 class=\"text-center\">Profile</h2>
+          <h4 class=\"text-center\">Personal</h4>
+          <div class=\"form-group row py-1\">
+            <label class=\"col-sm-12 col-md-4 col-lg-4 col-xl-2 col-xxl-2 col-form-label\" for=\"name\">Name</label>
+            <div class=\"col-sm-12 col-md-8 col-lg-8 col-xl-2 col-xxl-2 \"><input class=\"form-control\" type=\"text\" name=\"name\" value=".$profile["name"]."></div>
+            <label class=\"col-sm-12 col-md-4 col-lg-4 col-xl-2 col-xxl-2 col-form-label\" for=\"name\">First surname</label>
+            <div class=\"col-sm-12 col-md-8 col-lg-8 col-xl-2 col-xxl-2 \"><input class=\"form-control\" type=\"text\" name=\"surname1\" value=".$profile["surname1"]."></div>
+            <label class=\"col-sm-12 col-md-4 col-lg-4 col-xl-2 col-xxl-2 col-form-label\" for=\"name\">Second surname</label>
+            <div class=\"col-sm-12 col-md-8 col-lg-8 col-xl-2 col-xxl-2 \"><input class=\"form-control\" type=\"text\" name=\"surname2\" value=".$profile["surname2"]."></div>
+          </div>
+          <div class=\"form-group row py-1\">
+          <h4 class=\"text-center\">Contact</h4>
+          <label class=\"col-sm-12 col-md-4 col-lg-4 col-xl-1 col-xxl-1 col-form-label\" for=\"email\">Email</label>
+          <div class=\"col-sm-12 col-md-8 col-lg-8 col-xl-2 col-xxl-2 \"><input class=\"form-control\" type=\"text\" name=\"email\" value=".$profile["email"]."></div>
+          <label class=\"col-sm-12 col-md-4 col-lg-4 col-xl-1 col-xxl-1 col-form-label\" for=\"phone1\">Phone 1</label>
+          <div class=\"col-sm-12 col-md-8 col-lg-8 col-xl-2 col-xxl-2 \"><input class=\"form-control\" type=\"text\" name=\"phone1\" value=".$profile["phone1"]."></div>
+          <label class=\"col-sm-12 col-md-4 col-lg-4 col-xl-1 col-xxl-1 col-form-label\" for=\"phone2\">Phone 2</label>
+          <div class=\"col-sm-12 col-md-8 col-lg-8 col-xl-2 col-xxl-2 \"><input class=\"form-control\" type=\"text\" name=\"phone2\" value=".$profile["phone2"]."></div>
+          <label class=\"col-sm-12 col-md-4 col-lg-4 col-xl-1 col-xxl-1 col-form-label\" for=\"web\">Website</label>
+          <div class=\"col-sm-12 col-md-8 col-lg-8 col-xl-2 col-xxl-2 \"><input class=\"form-control\" type=\"text\" name=\"web\" value=".$profile["web"]."></div>
+          </div>
+          <div class=\"form-group row py-1\">
+          <label class=\"col-sm-12 text-center\" for=\"adress\">Adress</label>
+          <div class=\"col-sm-12\"><input class=\"form-control\" type=\"text\" name=\"adress\" value='".$direccion."'></div>
+          </div>
+          <div class=\"form-group row py-1\">
+          <h4 class=\"text-center\">Change password</h4>
+          <div class=\"col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4 py-2 \"><input class=\"form-control\" type=\"text\" name=\"newpass1\" placeholder=\"Insert new password\"></div>
+          <div class=\"col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4 py-2 \"><input class=\"form-control\" type=\"text\" name=\"newpass2\" placeholder=\"Repeat new password\"></div>
+          <div class=\"col-sm-0 col-md-2 col-lg-2 col-xl-2 col-xxl-2\"></div>
+          <button class=\"col-sm-12 col-md-2 col-lg-2 col-xl-2 col-xxl-2 py-2 btn btn-primary btn-sm\" type=\"submit\">Save Password</button>
+          </div>
+          <div class=\"form-group row py-1\">
+          <h4 class=\"text-center\">Change images</h4>
+          <label class=\"col-sm-12 text-center\" for=\"img_u\">Profile image</label>
+          <div class=\"col-sm-10 col-md-6 col-lg-6 col-xl-2 col-xxl-2 \"><input class=\"form-control\" type=\"text\" name=\"img_u\" value=".$profile["img_profile"]."></div>
+          <label class=\"col-sm-12 text-center\" for=\"img_b\">Backgorund image</label>
+          <div class=\"col-sm-10 col-md-6 col-lg-6 col-xl-2 col-xxl-2 \"><input class=\"form-control\" type=\"text\" name=\"img_b\" value=".$profile["img_back"]."></div>
+          </div>
+          <div class=\"form-group row py-1 justify-content-center\">
+          <label class=\"col-sm-12 text-center\" for=\"notes\">Notas</label>
+          <div class=\"col-12 \"><input class=\"form-control\" type=\"text\" name=\"notes\" value='".$profile["notes"]."'></div>
+          </div>
+          <div class=\"form-group row py-1 justify-content-center\">
+            <button class=\"col-2 btn btn-primary\" type=\"submit\">Save Changes</button>
+          </div>
+        </form>
       </div>
-    </nav>
-
+    </div>
     ";
   }
 }

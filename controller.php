@@ -1,5 +1,6 @@
 <?php
 require_once "model.php";
+require_once "view.php";
 class Controller {
   public static function check_login_introduced(){
     if (isset($_POST["username"]) && isset($_POST["password"])){
@@ -57,6 +58,48 @@ class Controller {
       header( "refresh:5; url=loginview.php" );
 
     }
+  }
+  public static function get_content(){
+    if (!isset($_GET["cnt"])){
+      return View::get_portal_view_welcome_content();
+    }else{
+      switch ($_GET["cnt"]) {
+    case "gallery":
+        return "gallery content";//crear gallery content y pasarselo
+        break;
+    case "records":
+        return "records content";//crear records content y pasarselo
+        break;
+    case "profile":
+        return View::get_profile_content();//crear profile content y pasarselo
+        break;
+    default:
+        return View::get_portal_view_welcome_content();
+      }
+    }
+  }
+  public static function get_action(){
+    if (!isset($_GET["act"])){
+    }else{
+      switch ($_GET["act"]) {
+    case "profedit":
+      Model::set_user_profile($_POST["name"],
+                              $_POST["surname1"],
+                              $_POST["surname2"],
+                              $_POST["email"],
+                              $_POST["phone1"],
+                              $_POST["phone2"],
+                              $_POST["web"],
+                              $_POST["adress"],
+                              $_POST["notes"],);         
+      break;
+    default:
+        return View::get_portal_view_welcome_content();
+      }
+    }
+  }
+  public static function refresh_profile(){
+    header ("Location: portalview.php?cnt=profile");
   }
 }
 ?>
