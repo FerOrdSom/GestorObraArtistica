@@ -30,6 +30,16 @@ class Controller {
     $hashed_password = password_hash($newpassword, PASSWORD_DEFAULT);
     Model::create_user($newusername,$newemail,$hashed_password);
 
+    $subject = "Welcome";
+    $body = "Hi, we just called to say we love you.";
+    $headers = "From: Your artistic manager";
+
+    if (mail($newwmail, $subject, $body, $headers))
+    {
+        echo "Email successfully sent to $to_email...";
+    }else{
+        echo "Email sending failed!";
+      }
     }
   }
   public static function login(){
