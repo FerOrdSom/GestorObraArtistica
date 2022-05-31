@@ -120,5 +120,53 @@ class Model{
     /* execute query */
     $stmt->execute();
   }
+  public static function create_colection($collection_name){
+    $user = Model::get_user_id();
+    $mysqli = new mysqli("localhost", "root", "", "gestion");
+    $stmt = $mysqli->prepare("INSERT INTO collections(user, name) VALUES (?, ?)");
+    $stmt->bind_param("is", $user, $collection_name); // "is" means that $id is bound as an integer and $label as a string
+    $stmt->execute();
+  }
+  public static function get_user_collections(){
+    $user = Model::get_user_id();
+    $mysqli = new mysqli("localhost", "root", "", "gestion");
+    $stmt = $mysqli->prepare("SELECT id, name FROM collections WHERE user=?");
+    $stmt->bind_param("s", $user);
+    /* execute query */
+    $stmt->execute();
+    /* bind result variables */
+    $result = $stmt->get_result();
+    $options = "";
+      while ($row = $result->fetch_assoc()) {
+        $options = $options."<option value=\"".$row['id']."\">".$row['name']."</option>\n\t\t\t";
+      }
+    return $options;
+  }
+  public static function create_work($collection, $work_name, $url){
+    $mysqli = new mysqli("localhost", "root", "", "gestion");
+    $stmt = $mysqli->prepare("INSERT INTO works (collection, name, url) VALUES (?, ?, ?)");
+    $stmt->bind_param("iss", $collection, $work_name, $url); // "is" means that $id is bound as an integer and $label as a string
+    $stmt->execute();
+  }
+  public static function get_collection_works($id){
+    $mysqli = new mysqli("localhost", "root", "", "gestion");
+    $stmt = $mysqli->prepare("SELECT name, url FROM works WHERE collection=?");
+    $stmt->bind_param("s", $id);
+    /* execute query */
+    $stmt->execute();
+    /* bind result variables */
+    $result = $stmt->get_result();
+    $works = "";
+      while ($row = $result->fetch_assoc()) {
+        $works = $works.
+        "<div class=\"col-3 my-2 border rounded\">
+          <div class=\"row justify-content-center rounded\">
+          <img style=\"object-fit: cover; width: 100%; height: 250px;\" src=\"".$row["url"]."\"></img>
+          </div>
+          <p class=\"align-bottom text-center\">".$row["name"]."\"</p>
+        </div>";
+      }
+    return $works;
+  }
 }
  ?>

@@ -23,4 +23,14 @@ echo $result["adress"]."<br>";
 echo $result["img_profile"]."<br>";
 echo $result["img_back"]."<br>";
 echo $result["notes"]."<br>";
+echo Model::get_user_collections();
+$id="1";
+echo Model::get_collection_works($id);
+echo "#####";
+$id="2";
+echo Model::get_collection_works($id);
+echo "#####";
+$id="3";
+echo Model::get_collection_works($id);
+echo "#####";
  ?>

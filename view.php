@@ -5,7 +5,7 @@ class View {
     <html lang=\"es\">
     <head>
       <meta charset=\"utf-8\">
-      <title>Login</title>
+      <title>My Manager</title>
       <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">
       <link rel=\"stylesheet\" type=\"text/css\" href=\"css\bootstrap.min.css\">
 
@@ -189,6 +189,39 @@ class View {
 
           </div>
         </form>
+      </div>
+    </div>
+    ";
+  }
+  public static function get_gallery_content(){
+    $collections = Model::get_user_collections();
+    if (isset($_GET["col"])){
+    $col_id = $_GET["col"];
+  }else{
+    $col_id = "";
+  }
+    return
+    "
+    <div class=\"container-fluid h-100 mx-0 my-0\">
+      <div class=\"row\">
+          <form class=\"col-sm-10 col-md-12 col-lg-6 col-xl-6 col-xxl-6 align-content-center\" action=\"collection.php\" method=\"post\" enctype=\"multipart/form-data\">
+            <div class=\"row-1 \">
+              <label class=\"col-12 my-1\" for=\"collection_name\"><h5 class=\"text-center\">Add collection:</h5></label>
+              <div class=\"col-12\"><input class=\"form-control\" type=\"text\" name=\"collection_name\" placeholder=\"Insert collection name\" required></div>
+              <input class=\"col-12 my-2\" type=\"submit\" name=\"submit\" value=\"Add collection\">
+            </div>
+          </form>
+          <form class=\"col-sm-10 col-md-12 col-lg-6 col-xl-6 col-xxl-6 align-content-center\" action=\"upload.php\" method=\"post\" enctype=\"multipart/form-data\">
+            <label class=\"col-12 my-1\" for=\"img_upload\"><h5 class=\"text-center\">Upload image</h5></label>
+            <input class=\"col-12 my-1\" id=\"img_upload\" type=\"file\" name=\"my_image\" \">
+            <input class=\"col-12 my-1\" type=\"submit\" name=\"submit\" value=\"Upload image\">
+            <select name=\"selector\" class=\"col-6 my-1\" form-select\" aria-label=\"Default select example\">
+              <option selected>Choose a colection</option>
+              ".$collections."
+            </select>
+
+            <button formaction=\"collectiongallery.php\" class=\"btn btn-primary col-12 my-1\">View collection</button>
+          </form>".Model::get_collection_works($col_id)."
       </div>
     </div>
     ";

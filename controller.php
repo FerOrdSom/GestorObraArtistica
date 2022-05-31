@@ -52,7 +52,7 @@ class Controller {
     }
       header('Location: portalview.php');
     }
-  }
+    }
   }
   public static function passrecovery(){
     if (isset($_POST["useremail"])){
@@ -68,7 +68,7 @@ class Controller {
     }else{
       switch ($_GET["cnt"]) {
     case "gallery":
-        return "gallery content";//crear gallery content y pasarselo
+        return View::get_gallery_content();;//crear gallery content y pasarselo
         break;
     case "records":
         return "records content";//crear records content y pasarselo
