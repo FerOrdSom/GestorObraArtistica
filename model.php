@@ -113,7 +113,6 @@ class Model{
     $stmt->bind_param("sssssssssi",$name,$surname1,$surname2,$email,$phone1,$phone2,$web,$adress,$notes,$user);
     /* execute query */
     $stmt->execute();
-
   }
 }
  ?>
