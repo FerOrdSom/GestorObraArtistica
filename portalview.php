@@ -5,14 +5,8 @@ session_start();
 if (!isset($_SESSION['username'])) {
   header('Location: loginview.php');
 }
-?>
-<?php
-
 $content = Controller::get_content();
-Controller::get_action();
 echo View::get_head();
 echo View::get_portal_view($content);
 echo View::get_foot();
-
-
 ?>

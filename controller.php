@@ -78,29 +78,6 @@ class Controller {
       }
     }
   }
-  public static function get_action(){
-    if (!isset($_GET["act"])){
-    }else{
-      switch ($_GET["act"]) {
-    case "profedit":
-      Model::set_user_profile($_POST["name"],
-                              $_POST["surname1"],
-                              $_POST["surname2"],
-                              $_POST["email"],
-                              $_POST["phone1"],
-                              $_POST["phone2"],
-                              $_POST["web"],
-                              $_POST["adress"],
-                              $_POST["notes"],);
-
-      break;
-    default:
-        return View::get_portal_view_welcome_content();
-      }
-    }
-  }
-  public static function refresh_profile(){
-    header ("Location: portalview.php?cnt=profile");
-  }
+  
 }
 ?>
