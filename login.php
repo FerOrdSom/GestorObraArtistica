@@ -22,6 +22,9 @@
   <div class="login-form">
     <input type="submit" value="Login">
   </div>
+  <div class="login-form">
+    <a href="login.php">Registro</a>
+  </div>
 </form>
 <!--register form -->
 <form action="login.php" method="get" class="form-example">
@@ -43,6 +46,9 @@
   </div>
   <div class="login-form">
     <input type="submit" value="Registrar">
+  </div>
+  <div class="login-form">
+    <a href="login.php">Login</a>
   </div>
 </form>
 
