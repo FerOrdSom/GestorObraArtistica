@@ -6,5 +6,5 @@ if (!isset($_SESSION['username'])) {
 }
 $collection_name = $_POST["collection_name"];
 Model::create_colection($collection_name);
-header ("Location:portalview.php?cnt=gallery");
+header ("Location: portalview.php?cnt=gallery");
 ?>

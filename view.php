@@ -107,7 +107,7 @@ class View {
     "
     <nav class=\"navbar navbar-default navbar-fixed-top border\">
       <div class=\"container\">
-      <div>Bienvenido/a ".$_SESSION['username']."</div>
+      <div>Welcome ".$_SESSION['username']."</div>
       <nav class=\"nav\">
           <a class=\"nav-link\" href=\"portalview.php?\">Welcome</a>
    	      <a class=\"nav-link\" href=\"portalview.php?cnt=gallery\">Gallery</a>

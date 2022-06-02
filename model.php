@@ -161,9 +161,9 @@ class Model{
         $works = $works.
         "<div class=\"col-3 my-2 border rounded\">
           <div class=\"row justify-content-center rounded\">
-          <img style=\"object-fit: cover; width: 100%; height: 250px;\" src=\"".$row["url"]."\"></img>
+          <img style=\"object-fit: cover; width: 100%; height: 150px;\" src=\"".$row["url"]."\"></img>
           </div>
-          <p class=\"align-bottom text-center\">".$row["name"]."\"</p>
+          <p class=\"align-bottom text-center\">".$row["name"]."</p>
         </div>";
       }
     return $works;

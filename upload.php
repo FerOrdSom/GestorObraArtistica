@@ -9,7 +9,7 @@ session_start();
 if (!isset($_SESSION['username'])) {
   header('Location: loginview.php');
 }
-if(isset($_POST["submit"]) && isset($_FILES["my_image"]) && !isset($_GET)){
+if(isset($_POST["submit"]) && isset($_FILES["my_image"]) && !isset($_GET["col"])){
   $collection = $_POST["selector"];
   echo "dev info: ".$collection."=id de coleccion seleccionada<br>";
   $cwd = getcwd();//get root directory
@@ -28,7 +28,10 @@ if(isset($_POST["submit"]) && isset($_FILES["my_image"]) && !isset($_GET)){
   Model::create_work($collection, $work_name, $url);
 
   header("Location: portalview.php?cnt=gallery");
-}elseif (isset($_GET["col"]))
+}elseif (isset($_GET["col"])){
+  header("Location: portalview.php?cnt=gallery&col=".$_GET["col"]);
+
+}
 
 
 ?>
