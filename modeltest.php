@@ -4,6 +4,10 @@ session_start();
 if (!isset($_SESSION['username'])) {
   header('Location: loginview.php');
 }
+$recordcontent = Model::get_record_content("src/img/img-629a6363291df.jpg");
+echo print_r($recordcontent);
+$pic_id=Model::get_work_id("src/img/img-629688fe643d8.jpg");
+echo "pic id: ".$pic_id;
 $user = $_SESSION['username'];
 // Model::read_users();
 // $result = Model::login("monk");

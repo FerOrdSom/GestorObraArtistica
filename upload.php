@@ -26,6 +26,8 @@ if(isset($_POST["submit"]) && isset($_FILES["my_image"]) && !isset($_GET["col"])
   echo $url;
 
   Model::create_work($collection, $work_name, $url);
+  $work_id = Model::get_work_id($url);
+  Model::create_record($work_id);
 
   header("Location: portalview.php?cnt=gallery");
 }elseif (isset($_GET["col"])){

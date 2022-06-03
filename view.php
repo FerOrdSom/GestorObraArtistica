@@ -226,5 +226,73 @@ class View {
     </div>
     ";
   }
+  public static function get_records_content(){
+    if (isset($_GET["url"])){
+    $pic_url = $_GET["url"];
+    $record = Model::get_record_content($pic_url);
+    }else{
+    $pic_url = "";
+
+
+    }
+    return "
+    <div class=\"container-fluid h-100 mx-0 my-0\">
+
+      <div class=\"row h-100 align-items-center\" id=\"login-card\">
+        <div class=\"col-sm-12 col-md-12 col-lg-8 col-xl-8 col-xxl-8\">
+          <img class=\"col-sm-10 col-md-6 col-lg-4 col-xl-4 col-xxl-4\" style=\"object-fit: cover; width: 100%; height: 50vh;\" src=\"".$pic_url."\"></img>
+        </div>
+
+        <form class=\"col-sm-12 col-md-12 col-lg-4 col-xl-4 col-xxl-4 border\" action=\"recordsave.php?url=".$pic_url."\" method=\"post\"><h4 class=\"text-center\">Record</h4>
+          <div class=\"form-group row py-1\">
+            <label class=\"col-1 col-form-label\" for=\"title\">Title</label>
+            <div class=\"col-2\"></div>
+            <div class=\"col-9 \"><input class=\"form-control\" type=\"text\" name=\"title\" placeholder=\"Insert title\" value=\"".$record["title"]."\"></div>
+          </div>
+          <div class=\"form-group row py-1\">
+            <label class=\"col-1 col-form-label\" for=\"author\">Author</label>
+            <div class=\"col-2\"></div>
+            <div class=\"col-9 \"><input class=\"form-control\" type=\"text\" name=\"author\" placeholder=\"Insert author\" value=\"".$record["author"]."\"></div>
+          </div>
+          <div class=\"form-group row py-1\">
+            <label class=\"col-1 col-form-label\" for=\"technique\">Technique</label>
+            <div class=\"col-2\"></div>
+            <div class=\"col-9 \"><input class=\"form-control\" type=\"text\" name=\"technique\" placeholder=\"Insert technique\" value=\"".$record["technique"]."\"></div>
+          </div>
+          <div class=\"form-group row py-1\">
+            <label class=\"col-1 col-form-label\" for=\"width\">Width</label>
+            <div class=\"col-2\"></div>
+            <div class=\"col-9 \"><input class=\"form-control\" type=\"text\" name=\"width\" placeholder=\"Insert width\" value=\"".$record["width"]."\"></div>
+          </div>
+          <div class=\"form-group row py-1\">
+            <label class=\"col-1 col-form-label\" for=\"height\">Height</label>
+            <div class=\"col-2\"></div>
+            <div class=\"col-9 \"><input class=\"form-control\" type=\"text\" name=\"height\" placeholder=\"Insert height\" value=\"".$record["height"]."\"></div>
+          </div>
+          <div class=\"form-group row py-1\">
+            <label class=\"col-1 col-form-label\" for=\"year\">Year</label>
+            <div class=\"col-2\"></div>
+            <div class=\"col-9 \"><input class=\"form-control\" type=\"text\" name=\"year\" placeholder=\"Insert year\" value=\"".$record["year"]."\"></div>
+          </div>
+          <div class=\"form-group row py-1\">
+            <label class=\"col-1 col-form-label\" for=\"description\">Description</label>
+            <div class=\"col-2\"></div>
+            <div class=\"col-9 \"><input class=\"form-control\" type=\"text\" name=\"description\" placeholder=\"Insert description\" value=\"".$record["description"]."\"></div>
+          </div>
+          <div class=\"form-group row py-1\">
+            <label class=\"col-1 col-form-label\" for=\"commentary\">Commentary</label>
+            <div class=\"col-2\"></div>
+            <div class=\"col-9 \"><input class=\"form-control\" type=\"text\" name=\"commentary\" placeholder=\"Insert commentary\" value=\"".$record["commentary"]."\"></div>
+          </div>
+
+          <div class=\"form-group row py-2 justify-content-center\">
+            <button class=\"btn btn-primary\" type=\"submit\">Save record</button>
+          </div>
+        </form>
+
+      </div>
+    </div>
+    ";
+  }
 }
 ?>

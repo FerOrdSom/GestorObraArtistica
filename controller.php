@@ -71,7 +71,7 @@ class Controller {
         return View::get_gallery_content();;//crear gallery content y pasarselo
         break;
     case "records":
-        return "records content";//crear records content y pasarselo
+        return View::get_records_content();//crear records content y pasarselo
         break;
     case "profile":
         return View::get_profile_content();//crear profile content y pasarselo

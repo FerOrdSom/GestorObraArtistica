@@ -102,6 +102,30 @@ class Model{
     );
     return $result;
   }
+  public static function get_record_content($url){
+    $id = Model::get_work_id($url);
+    $mysqli = new mysqli("localhost", "root", "", "gestion");
+    $stmt = $mysqli->prepare("SELECT title, author,technique, width, height, year, description, commentary FROM records WHERE work=?");
+    /* bind parameters for markers */
+    $stmt->bind_param("s", $id);
+    /* execute query */
+    $stmt->execute();
+    /* bind result variables */
+    $stmt->bind_result($title, $author,$technique, $width, $height, $year, $description, $commentary);
+    /* fetch value */
+    $stmt->fetch();
+    $result = array(
+    "title" => "$title",
+    "author" => "$author",
+    "technique" => "$technique",
+    "width" => "$width",
+    "height" => "$height",
+    "year" => "$year",
+    "description" => "$description",
+    "commentary" => "$commentary",
+    );
+    return $result;
+  }
   public static function set_user_profile($name,$surname1,$surname2,$email,$phone1,$phone2,$web,$adress,$notes){
     $user = Model::get_user_id();
     $mysqli = new mysqli("localhost", "root", "", "gestion");
@@ -117,6 +141,22 @@ class Model{
                                                   WHERE user=?");
     /* bind parameters for markers */
     $stmt->bind_param("sssssssssi",$name,$surname1,$surname2,$email,$phone1,$phone2,$web,$adress,$notes,$user);
+    /* execute query */
+    $stmt->execute();
+  }
+  public static function set_record($title, $author,$technique, $width, $height, $year, $description, $commentary, $work){
+    $mysqli = new mysqli("localhost", "root", "", "gestion");
+    $stmt = $mysqli->prepare("UPDATE records SET title = ?,
+                                                  author = ?,
+                                                  technique = ?,
+                                                  width = ?,
+                                                  height = ?,
+                                                  year = ?,
+                                                  description = ?,
+                                                  commentary = ?
+                                                  WHERE work=?");
+    /* bind parameters for markers */
+    $stmt->bind_param("sssddissi",$title, $author,$technique, $width, $height, $year, $description, $commentary,$work);
     /* execute query */
     $stmt->execute();
   }
@@ -148,6 +188,23 @@ class Model{
     $stmt->bind_param("iss", $collection, $work_name, $url); // "is" means that $id is bound as an integer and $label as a string
     $stmt->execute();
   }
+  public static function get_work_id($url){
+    $mysqli = new mysqli("localhost", "root", "", "gestion");
+    $stmt = $mysqli->prepare("SELECT id FROM works WHERE url=?");
+    $stmt->bind_param("s", $url);
+    /* execute query */
+    $stmt->execute();
+    /* bind result variables */
+    $result = $stmt->get_result();
+    $id=$result->fetch_assoc();
+    return $id["id"];
+  }
+  public static function create_record($work_id){
+    $mysqli = new mysqli("localhost", "root", "", "gestion");
+    $stmt = $mysqli->prepare("INSERT INTO records (work) VALUES (?)");
+    $stmt->bind_param("s",$work_id); // "is" means that $id is bound as an integer and $label as a string
+    $stmt->execute();
+  }
   public static function get_collection_works($id){
     $mysqli = new mysqli("localhost", "root", "", "gestion");
     $stmt = $mysqli->prepare("SELECT name, url FROM works WHERE collection=?");
@@ -160,13 +217,18 @@ class Model{
       while ($row = $result->fetch_assoc()) {
         $works = $works.
         "<div class=\"col-3 my-2 border rounded\">
+          <a href=\"portalview.php?cnt=records&url=".$row["url"]."\">
           <div class=\"row justify-content-center rounded\">
           <img style=\"object-fit: cover; width: 100%; height: 150px;\" src=\"".$row["url"]."\"></img>
           </div>
           <p class=\"align-bottom text-center\">".$row["name"]."</p>
+          </a>
         </div>";
       }
     return $works;
+  }
+  public static function get_pic_from_url($url){
+
   }
 }
  ?>
