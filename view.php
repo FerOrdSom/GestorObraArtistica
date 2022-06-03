@@ -110,8 +110,7 @@ class View {
       <div>Welcome ".$_SESSION['username']."</div>
       <nav class=\"nav\">
           <a class=\"nav-link\" href=\"portalview.php?\">Welcome</a>
-   	      <a class=\"nav-link\" href=\"portalview.php?cnt=gallery\">Gallery</a>
-   	      <a class=\"nav-link\" href=\"portalview.php?cnt=records\">Records</a>
+   	      <a class=\"nav-link\" href=\"portalview.php?cnt=gallery\">Gallery</a>   	      
    	      <a class=\"nav-link\" href=\"portalview.php?cnt=profile\">Profile</a>
           <a class=\"nav-link\" href=\"logout.php\">Logout</a>
       </nav>
